@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "boot"
 
 require "rails"
@@ -33,5 +35,7 @@ module EnableUptime
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
