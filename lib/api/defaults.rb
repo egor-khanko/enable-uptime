@@ -14,7 +14,7 @@ module API::Defaults
         token: []
       }
     ],
-    mount_path: 'api/swagger_doc.json',
+    mount_path: '/swagger_doc.json',
     models: [],
     array_use_braces: true
   }.freeze
