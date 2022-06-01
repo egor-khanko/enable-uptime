@@ -82,6 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: enable_uptime_production
-  username: enable_uptime
+  database: <%= ENV.fetch("ENABLE_UPTIME_DATABASE_NAME") { "enable_uptime_production" } %>
+  username: <%= ENV["ENABLE_UPTIME_DATABASE_USERNAME"] %>
   password: <%= ENV["ENABLE_UPTIME_DATABASE_PASSWORD"] %>
