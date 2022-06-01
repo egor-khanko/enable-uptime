@@ -37,5 +37,7 @@ module EnableUptime
     config.generators.system_tests = nil
 
     config.autoload_paths << Rails.root.join('lib')
+
+    config.active_job.queue_adapter = :sucker_punch
   end
 end
