@@ -12,6 +12,7 @@
 #
 class MonitoredService < ApplicationRecord
   has_and_belongs_to_many :recipients
+  has_many :check_results
 
   after_commit :update_cron_schedule
 

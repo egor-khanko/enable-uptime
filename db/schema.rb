@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_31_213358) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_01_222314) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "check_results", force: :cascade do |t|
+    t.boolean "avaliable", default: false, null: false
+    t.bigint "monitored_service_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["monitored_service_id"], name: "index_check_results_on_monitored_service_id"
+  end
 
   create_table "monitored_services", force: :cascade do |t|
     t.string "url", null: false
@@ -34,4 +42,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_213358) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "check_results", "monitored_services"
 end

@@ -8,6 +8,8 @@ class AvaliabilityChecker
   end
 
   def check
-    raise NotImplementedError
+    return unless response = HTTP.get(url)
+
+    response.status.success?
   end
 end

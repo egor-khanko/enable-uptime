@@ -9,6 +9,7 @@ ruby "3.1.2"
 gem "rails", "~> 7.0.3"
 
 gem "grape", "~> 1.6"
+gem "http", "~> 5.0"
 
 gem "grape-swagger", "~> 1.4.2"
 gem 'rswag-ui', '~> 2.5.1'
