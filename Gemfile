@@ -14,6 +14,8 @@ gem "http", "~> 5.0"
 gem "grape-swagger", "~> 1.4.2"
 gem 'rswag-ui', '~> 2.5.1'
 
+gem "dotenv-rails"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -59,7 +61,6 @@ gem "sucker_punch", "~> 3.0"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug"
-  gem "dotenv-rails"
 end
 
 group :development do
