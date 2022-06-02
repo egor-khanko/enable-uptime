@@ -1,24 +1,12 @@
-# README
+# Enable-Uptime - monitor site uptime easily via email
+## API
+All API is described using OpenAPI 3, json is avaliable at `/api/swagger_doc.json`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Also, Swagger interface can be found at `api/docs`
 
-Things you may want to cover:
+## Deployment
+Project supports deployment (local and remote) via docker-compose
 
-* Ruby version
+Necessary files for deployment `docker-compose.yml` and `.env`.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+All varialbes in `.env` are self-exaplanatory, I think)
