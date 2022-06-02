@@ -39,5 +39,18 @@ module EnableUptime
     config.autoload_paths << Rails.root.join('lib')
 
     config.active_job.queue_adapter = :sucker_punch
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address:              ENV['MAILER_ADDRESS'],
+      port:                 ENV['MAILER_PORT'],
+      domain:               ENV['MAILER_DOMAIN'],
+      user_name:            ENV['MAILER_USERNAME'],
+      password:             ENV['MAILER_PASSWORD'],
+      authentication:       'plain',
+      enable_starttls_auto: true,
+      open_timeout:         5,
+      read_timeout:         5
+    }
   end
 end

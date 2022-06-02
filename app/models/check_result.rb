@@ -20,4 +20,12 @@
 #
 class CheckResult < ApplicationRecord
   belongs_to :monitored_service
+
+  after_create :notify_recipients
+
+  private
+
+  def notify_recipients # figure out a way to run calls after rails process has stopped (sidekiq)
+    NotifyRecipients.perform_now(self, monitored_service.recipients.to_a)
+  end
 end
