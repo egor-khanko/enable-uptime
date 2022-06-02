@@ -15,4 +15,15 @@ class MonitoredServicePresenter
       recipients: present_recipients
     }
   end
+
+  private
+
+  def present_recipients
+    monitored_service.recipients.map do |recipient|
+      {
+        id: recipient.id,
+        email: recipient.email
+      }
+    end
+  end
 end
