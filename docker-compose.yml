@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  db:
+    image: postgres
+    volumes:
+      - /tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "${PRODUCTION_POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${PRODUCTION_POSTGRES_PASSWORD}"
+  web:
+    image: egorkhanko/enable-uptime
+    command: bash -c "rm -f tmp/pids/server.pid"
+    ports:
+      - "3000:3000"
+    environment:
+      ENABLE_UPTIME_DATABASE_HOST: db
+      ENABLE_UPTIME_DATABASE_USERNAME: "${PRODUCTION_POSTGRES_USER}"
+      ENABLE_UPTIME_DATABASE_PASSWORD: "${PRODUCTION_POSTGRES_PASSWORD}"
+    depends_on:
+      - db
