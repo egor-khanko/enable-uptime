@@ -20,10 +20,19 @@ class API::Resources::MonitoredServices < Grape::API
       end
     end
 
-    get ':monitored_service_id' do
-      find_monitored_service(monitored_service_id).then do |monitored_service|
-        present_monitored_service(monitored_service)
+    namespace ':monitored_service_id' do
+      get do
+        find_monitored_service(params[:monitored_service_id]).then do |monitored_service|
+          present_monitored_service(monitored_service)
+        end
       end
+
+      get :last_check_result do
+        find_monitored_service(params[:monitored_service_id]).then do |monitored_service|
+          monitored_service.check_results.last.avaliable
+        end
+      end
+
     end
 
     params do
