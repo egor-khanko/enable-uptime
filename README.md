@@ -5,8 +5,12 @@ All API is described using OpenAPI 3, json is avaliable at `/api/swagger_doc.jso
 Also, Swagger interface can be found at `api/docs`
 
 ## Deployment
-Project supports deployment (local and remote) via docker-compose
+We don't have prebuild images yet, but building it yourself is pretty simple)
 
-Necessary files for deployment `docker-compose.yml` and `.env`.
+1. `git clone git@github.com:egor-khanko/enable-uptime.git`
+2. `cp .env.sample .env`
+3. Edit `.env` file to match your environment
+4. `docker-compose up` (or `docker-compose up -d` to run in the background)
 
-All varialbes in `.env` are self-exaplanatory, I think)
+Logs are located at production.log, it is accesible only inside docker container,
+but in prod app should be monitored through some king of tracking tool (NewRelic, Sentry, etc.)
