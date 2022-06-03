@@ -32,7 +32,6 @@ class API::Resources::MonitoredServices < Grape::API
           monitored_service.check_results.last.avaliable
         end
       end
-
     end
 
     params do

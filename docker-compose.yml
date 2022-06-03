@@ -3,12 +3,12 @@ services:
   db:
     image: postgres
     volumes:
-      - /tmp/db:/var/lib/postgresql/data
+      - /tmp/enable-uptime-db:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: "${PRODUCTION_POSTGRES_USER}"
       POSTGRES_PASSWORD: "${PRODUCTION_POSTGRES_PASSWORD}"
   web:
-    image: egorkhanko/enable-uptime
+    build: .
     command: bash -c "rm -f tmp/pids/server.pid"
     ports:
       - "3000:3000"
